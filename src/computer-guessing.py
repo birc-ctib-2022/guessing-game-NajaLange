@@ -33,3 +33,36 @@ for guess in range(1, 21):
         break
 
     print("I must have been too low, right?", result)
+
+
+for guess in reversed(range(1, 21)):
+    result = input_selection(
+        "I'm guessing {}\nHow is my guess?".format(guess),
+        ["low", "hit", "high"]
+    )
+    if result == "hit":
+        print("Wuhuu!")
+        break
+
+    print("I must have been too low, right?", result)
+
+
+upper_bound = 20
+lower_bound = 1 
+
+while guess != "Wuhuu":
+    guess = (upper_bound + lower_bound) // 2
+    result = input_selection(
+        "I'm guessing {}\nHow is my guess?".format(guess),
+        ["low", "hit", "high"]    
+    )
+    if result == "low":
+        lower_bound = guess+1
+    if result == "high":
+        upper_bound = guess-1
+   
+    if result == "hit":
+        print("Wuhuu!")
+        break
+        
+    print("I must have been too low, right?", result)
